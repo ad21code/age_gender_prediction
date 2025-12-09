@@ -1,0 +1,33 @@
+# --- Python venv ---
+venv/
+.env/
+.venv/
+
+# --- Python cache ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# --- Streamlit cache ---
+.streamlit/
+
+# --- Logs ---
+*.log
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+
+# --- VS Code stuff ---
+.vscode/
+
+# --- Jupyter junk (if any) ---
+.ipynb_checkpoints/
+
+# --- Big model files (OPTIONAL) ---
+# Uncomment the next line if you DON'T want to push large models
+# *.h5
+# *.hdf5
+# *.pt
+# *.onnx
