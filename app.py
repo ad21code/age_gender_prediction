@@ -3,7 +3,7 @@ from PIL import Image
 import numpy as np
 import os
 import tensorflow as tf
-from keras.src.legacy.saving import legacy_h5_format
+from tensorflow.keras.models import load_model
 
 # Set page configuration
 st.set_page_config(
@@ -72,18 +72,19 @@ st.markdown(
 )
 
 
-# Function to load the model (with caching for performance)
 @st.cache_resource
 def load_age_gender_model():
     try:
-        model_path = r"C:\Users\anike\OneDrive\Desktop\AGP\Age_Sex_Detection.h5"
-        model = legacy_h5_format.load_model_from_hdf5(
-            model_path, custom_objects={"mae": "mae"}
+        model_path = "Age_Sex_Detection.h5"  # make sure this is a relative path
+        model = load_model(
+            model_path,
+            compile=False,              # avoids issues with old metrics
         )
         return model
     except Exception as e:
         st.error(f"Error loading model: {e}")
         return None
+
 
 
 # Function to preprocess the image
